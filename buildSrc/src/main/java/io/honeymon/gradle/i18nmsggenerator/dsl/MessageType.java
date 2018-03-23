@@ -1,7 +1,10 @@
 package io.honeymon.gradle.i18nmsggenerator.dsl;
 
+import lombok.Getter;
+
+@Getter
 public enum MessageType {
-    MESSAGES("properties", "messages", "message", ".properties", "Generate for Spring Application(`messages/message-{local}.properties`)"),
+    PROPERTIES("properties", "messages", "message", ".properties", "Generate for Spring Application(`messages/message-{local}.properties`)"),
     ANDROID("android", "values", "strings", ".xml", "Generatoe for Android(`values-{local}/strings.xml`)"),
     IOS("ios", ".lproj", "Localizable", ".strings", "Generate for IOS(`{local}.lproj/Localizable.strings`");
 
@@ -19,26 +22,6 @@ public enum MessageType {
         this.descr = descr;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public String getFileNamePrefix() {
-        return fileNamePrefix;
-    }
-
-    public String getFileExtension() {
-        return fileExtension;
-    }
-
-    public String getDescr() {
-        return descr;
-    }
-
     public static MessageType of(String type) {
         for (MessageType el : values()) {
             if (el.getType().equals(type)) {
@@ -46,6 +29,6 @@ public enum MessageType {
             }
         }
 
-        throw new IllegalArgumentException("Not found type: " + type);
+        throw new IllegalArgumentException("Support types: [properties, android, ios]. Not found type: " + type);
     }
 }

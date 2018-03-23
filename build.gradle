@@ -12,7 +12,6 @@ repositories {
 }
 
 dependencies {
-    compile localGroovy()
     compile gradleApi() // Gradle API
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -20,7 +19,7 @@ dependencies {
 
 
 i18nMsgGenerator {
-    spreadSheetId = "test"
-    cellRange = "test"
-    type = "msg"
+    spreadSheetId = "1hz6AnM60HX5VYEpz__2XQoScV4YE_r_v41utJNUzhYE"
+    cellRange = "Sheet1!A1:Z"
+    type = "properties"
 }
